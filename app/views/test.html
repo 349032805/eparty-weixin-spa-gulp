@@ -1,0 +1,143 @@
+ <style type="text/css">
+
+ .emample{
+    text-align: center;
+    padding-top:20px;
+    position: relative;
+ }
+
+ .split-line{
+    width:100%;
+    border-bottom: 1px dashed #999;
+    margin:20px 0;
+ }
+
+
+.form-box{
+    margin:0 auto; 
+    float:none; 
+    background:#fff; 
+}
+
+ .tip-bubble{
+    padding-left:20px;
+    padding-right:20px;
+    border-radius: 30px;
+    text-align: center;
+    background-color: #000;
+    opacity: 0.7;
+    font-size: 13px;
+    color:white;
+    z-index: 1000;
+    border:none;
+    cursor: default;
+    height:30px;
+    line-height: 30px;
+
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom: 0;
+    margin:auto;
+    max-width:35%;
+}
+
+</style>
+<!-- <link href="http://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->
+<link href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+ <!-- 测试页 -->
+<div class="emample">
+
+    <h3>示例页</h3>
+
+    <div class="tip-bubble" ng-show="serverError==1">{{tipMsg}}</div>
+
+    <div class="split-line"></div>
+    <p>姓名: <input type="text" class="form-control" ng-model="myName"></p>
+    <p>你输入的为: {{ myName }}</p>
+
+   <!--  <div>
+        取值&nbsp;
+        <a href="javascript:void(0);" data="1" ng-click="goPage($event)">1</a>
+        <a href="javascript:void(0);" data="2" ng-click="goPage($event)">2</a>
+        <a href="javascript:void(0);" data="3" ng-click="goPage($event)">3</a>
+        <a href="javascript:void(0);" data="4" ng-click="goPage($event)">4</a>
+        <a href="javascript:void(0);" data="5" ng-click="goPage($event)">5</a>
+    </div> -->
+    <br/>
+
+    <p><input type="text" class="form-control" ng-model="hello"></p>
+    <p><button type="button" class="btn btn-info" ng-click="getModelValue()">获取model值</button></p>
+    
+   <!--  <p><input type="text" class="form-control" id="targetEle"></p>
+    <p><span id="targetEle2">你好,妹纸</span></p>
+    <p><button type="button" class="btn btn-info" ng-click="getValue()">获取值</button></p> -->
+
+    <div class="split-line"></div>
+
+    <div ng-init="season='spring'">
+        <button class="btn" ng-class="{'btn-info': season === 'spring', 'btn-default': season !== 'spring'}" ng-click="season='spring'">春天</button>
+     <button class="btn" ng-class="{'btn-info': season === 'summer', 'btn-default': season !== 'summer'}" ng-click="season='summer'">夏天</button>
+      <button class="btn" ng-class="{'btn-info': season === 'fall', 'btn-default': season !== 'fall'}" ng-click="season='fall'">秋天</button>
+       <button class="btn" ng-class="{'btn-info': season === 'winter', 'btn-default': season !== 'winter'}" ng-click="season='winter'">冬天</button>
+    </div>
+
+    <!-- 表单验证 -->
+    <h3>表单验证示例(ng-message)</h3>
+    <div class="col-md-5 form-box">
+        <form name="userForm" novalidate>
+            <div class="form-group" ng-class="{'has-error':userForm.name.$touched && userForm.name.$invalid}">
+                <label>用户名</label>
+                <input type="text" name="name" class="form-control" ng-model="user.name" ng-minlength="5" ng-maxlength="10" required/>
+
+                <div class="help-block" ng-messages="userForm.name.$error" ng-if="userForm.name.$touched">
+                    <p ng-message="minlength">用户名最小长度5</p>
+                    <p ng-message="maxlength">用户名最大长度10</p>
+                    <p ng-message="required">用户名必填</p>
+                </div>
+            </div>
+
+            <div class="form-group" ng-class="{'has-error':userForm.email.$touched && userForm.email.$invalid}">
+                <label>邮箱</label>
+                <input type="email" name="email" class="form-control" ng-model="user.email" ng-minlength="5" ng-maxlength="20" required/>
+     
+                <div class="help-block" ng-messages="userForm.email.$error" ng-if="userForm.email.$touched">
+                    <p ng-message="email">邮箱格式错误</p>
+                    <p ng-message="minlength">邮箱最小长度5</p>
+                    <p ng-message="maxlength">邮箱最大长度10</p>
+                    <p ng-message="required">邮箱必填</p>
+                </div>
+                </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-info" ng-disabled="userForm.$invalid">提交</button>
+            </div>
+        </form>
+    </div>
+
+     <button type="button" class="btn btn-info" ng-click="getParams()">获取地址栏参数</button>
+     <button type="button" class="btn btn-info" ng-click="gotoPage()">js跳转页面</button>
+
+     <div style="margin-top:30px;">
+         <h4>js实现倒计时功能</h4>
+         <button type="button" class="btn btn-info" ng-click="getSmsCode()" ng-disabled="smsCodeCountDown"> 获取验证码{{smsCodeCountDown ? '(' + smsCodeCountDown + ')' : ''}}</button>
+     </div>
+
+
+    <div style="margin-top:30px;">
+          <h4>数据过滤</h4>
+          <div>{{ 123.456789 | number:2 }}</div>
+          <div>{{ 101.2 | currency:'￥'}}</div>
+     </div>
+
+
+     <div style="margin-top:30px;">
+          <h4>指令</h4>
+          <rainbow color='red'></rainbow>
+          <rainbow color='orange'></rainbow>
+          <rainbow color='green'></rainbow>
+     </div>
+
+</div>
+

@@ -1,0 +1,11 @@
+{
+  "name": "eparty",
+  "version": "1.0.0",
+  "dependencies": {
+    "angular": "1.5.8",
+    "angular-ui-router": "latest",
+    "angular-messages": "1.5.8"
+  },
+  "appPath": "app",
+  "moduleName": "eparty"
+}

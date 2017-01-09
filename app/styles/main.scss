@@ -1,0 +1,126 @@
+@charset "utf-8";
+
+.main{
+ .store-theme{
+    width:100%;
+    height:260px;
+    position: relative;
+
+	  .store-bg{
+	    width:100%;
+	    height:100%;
+	  }
+
+	  .bg-layer{
+	  	width:100%;
+	  	height: 100%;
+	  	background: #000;
+	  	opacity: 0.3;
+
+	  	position: absolute;
+	  	top:0;
+	  	left:0;
+	  	z-index: 100;
+	  }
+
+	  .store-table{
+	  	width:100%;
+	  	text-align: center;
+	  	position: absolute;
+	  	top:40%;
+	  	left:0;
+	  	color:white;
+	  	line-height: 40px;
+	  	z-index: 200;
+	  }
+
+	    .store-logo{
+		  	width:82px;
+		  	height:82px;
+		  	border-radius: 50%;
+		  	position: absolute;
+		  	bottom: -41px;
+		  	left:50%;
+		  	margin-left:-41px;
+		  	z-index: 200;
+
+		  	background: url('/images/store_logo.png') no-repeat center;
+		  	background-size: 100% 100%;
+		  }
+  }
+
+  .broadcast{
+  	text-align: center;
+  	margin-top:60px;
+
+  	 .broadcast-icon{
+	  	width:15px;
+	  	height:15px;
+	  	vertical-align: bottom;
+	  }
+
+	   .broadcast-content{
+	  	font-size: 15px;
+	  	margin-left:10px;
+	  }
+  }
+
+
+  .four-labels{
+  	padding:0 10px;
+  	margin-top:20px;
+
+  	.row{
+	  	height:92px;
+
+	  	.click-box{
+		  	width:49%;
+		  	height:92px;
+		  	text-align: center;
+		  	padding-top:20px;
+		  	font-size: 15px;
+		  	color:#333;
+
+		  	.order-food-icon{
+			  	width:33px;
+			  	height:24px;
+			  	margin-bottom: 10px;
+			  }
+
+			  .weixin-pay-icon{
+			  	width:33px;
+			  	height:30px;
+			  	margin-bottom: 4px;
+			  }
+
+			  .has-order-icon{
+			  	width:27px;
+			  	height:30px;
+			  	margin-bottom: 10px;
+			  }
+
+			  .comment-icon{
+			  	width:27px;
+			  	height:34px;
+			  	margin-bottom: 6px;
+			  }
+
+			   .order-num{
+				  	width:14px;
+				  	height:14px;
+				  	line-height: 14px;
+				  	text-align: center;
+				  	border-radius: 50%;
+				  	background: #f34a29;
+				  	position: absolute;
+				  	top:-5px;
+				  	right:24%;
+				  	font-size: 12px;
+				  	color:white;
+				  }
+		  }
+	  }
+  }
+
+
+}

@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Eparty</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="format-detection" content="telephone=no">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+   
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/common.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="eparty">
+      <!-- <div ng-view=""></div> -->
+       <div ui-view=""></div>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-messages/angular-messages.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+
+        <!-- 拦截器 -->
+        <script src="scripts/config/http_interceptor.js"></script>
+
+        <script src="scripts/config/session_service.js"></script>
+        <script src="scripts/config/session_injector.js"></script>
+
+        <script src="scripts/config/base_url.js"></script>
+
+        <!-- 自定义指令 -->
+        <script src="scripts/directives/rainbow.js"></script>
+
+        <script src="scripts/controllers/index.js"></script>
+        <script src="scripts/controllers/test.js"></script>
+        <script src="scripts/controllers/waiterRanking.js"></script>
+        <script src="scripts/controllers/hasOrder.js"></script>
+        <!-- endbuild -->
+</body>
+</html>

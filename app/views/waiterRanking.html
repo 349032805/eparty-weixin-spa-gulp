@@ -1,0 +1,67 @@
+<style type="text/css">
+	table{
+		width:100%;
+		background-color: white;
+	}
+
+	tr,th,td{
+		height:40px;
+		font-size: 15px;
+		color:#666;
+	}
+	th{
+		font-weight: normal;
+		border-bottom: 1px solid #D2D2D2;
+		width:20%;
+	}
+	td{
+		text-align: center;
+		border-bottom: 1px solid #E8E8E8;
+	}
+
+
+	.odd {
+      background-color: #E3F0F0;
+    }
+    .even {
+      background-color: #D5E3E3;
+    }
+
+</style>
+
+	<div>
+		<table>
+			<thead>
+				<tr>
+					<th>排名</th>
+					<th>姓名</th>
+					<th>性别</th>
+					<th>评分</th>
+					<th>日期</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="item in list | orderBy: 'score'" ng-class="{even: !$even, odd: !$odd}">
+					<td>NO.{{$index+1}}</td>
+					<td>{{item.name}}</td>
+					<td>{{item.sex == 0?'男':'女'}}</td>
+					<td>{{item.score}}分</td>
+					<td>{{item.date |date:"yyyy-MM-dd"}}</td>
+				</tr>
+				<tr>
+					<td colspan="4" style="border-bottom: none;color:#999;">加载更多</td>
+				</tr>
+			</tbody>
+		</table>
+
+		&nbsp;<span>{{helloGril}}</span><br/>
+		&nbsp;<input type="text" value={{helloGril}}>
+
+		 <div style="margin-top:30px;">
+          <h4>指令</h4>
+          <rainbow color='red'></rainbow>
+          <rainbow color='orange'></rainbow>
+          <rainbow color='green'></rainbow>
+     </div>
+
+	</div>
