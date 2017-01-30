@@ -199,6 +199,6 @@ gulp.task('copy:plugins', function () {
 //   runSequence(['images', 'copy:extras','copy:fonts', 'client:build']);
 // });
 
-gulp.task('build', ['clean:dist','revImg'], function () {
-  runSequence(['copy:extras','copy:fonts', 'copy:plugins','client:build']);
+gulp.task('build', ['clean:dist'], function () {
+  runSequence(['revImg','copy:extras','copy:fonts', 'copy:plugins','client:build']);
 });
