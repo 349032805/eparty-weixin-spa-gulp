@@ -9,6 +9,7 @@ var wiredep = require('wiredep').stream;
 var runSequence = require('run-sequence');
 var rev = require('gulp-rev');
 var revCollector = require('gulp-rev-collector');
+var proxy = require('http-proxy-middleware');
 
 var yeoman = {
   app: require('./bower.json').appPath || 'app',
@@ -68,7 +69,16 @@ gulp.task('start:server', function() {
     root: [yeoman.app, '.tmp'],
     livereload: true,
     // Change this to '0.0.0.0' to access the server from outside.
-    port:8090
+    port:8090,
+    host:'0.0.0.0',
+    middleware: function(connect, opt) {
+      return [
+        proxy('/api',  {
+            target: 'http://localhost:8080',
+            changeOrigin:true
+        })
+      ]
+    }
   });
 });
 

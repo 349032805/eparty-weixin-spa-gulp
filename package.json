@@ -23,6 +23,7 @@
     "gulp-useref": "^3.0.0",
     "gulp-util": "^3.0.6",
     "gulp-watch": "^4.2.4",
+    "http-proxy-middleware": "^0.17.3",
     "jshint-stylish": "^1.0.0",
     "lazypipe": "^0.2.4",
     "open": "0.0.5",
