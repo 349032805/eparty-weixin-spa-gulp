@@ -73,8 +73,8 @@ gulp.task('start:server', function() {
     host:'0.0.0.0',
     middleware: function(connect, opt) {
       return [
-        proxy('/api',  {
-            target: 'http://localhost:8080',
+        proxy('/',  {
+            target: 'http://192.168.132.101:8082',
             changeOrigin:true
         })
       ]

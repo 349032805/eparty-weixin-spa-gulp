@@ -27,8 +27,9 @@ angular.module('eparty')
 
      $http({
           method:'GET',
-          url:urlService.baseUrl+'/api/v1/stores/6'
-          // params:{},
+          url:urlService.baseUrl+'/betty/order/findSameDayOrderListInfo.htm'
+          // params:{storeId:120},
+          // data:{storeId:120},
           // responseType:'json'
       }).then(function(res){
       console.log(res.statusText);
@@ -37,14 +38,14 @@ angular.module('eparty')
         console.log("fail...");
       });
 
-      $http.post(urlService.baseUrl+'/api/v1/stores/6',{
-          // params:{},
-          // responseType:'json'
-      }).success(function(res){
-          console.log(res);
-        }).error(function(res){
-        console.log("fail...");
-      });
+      // $http.post(urlService.baseUrl+'/api/v1/stores/6',{
+      //     // params:{},
+      //     // responseType:'json'
+      // }).success(function(res){
+      //     console.log(res);
+      //   }).error(function(res){
+      //   console.log("fail...");
+      // });
 
 
         // 在jsonp中，url的最后必须严格带上“&callback=JSON_CALLBACK”，而且名字不能改
