@@ -27,7 +27,8 @@ angular.module('eparty')
 
      $http({
           method:'GET',
-          url:urlService.baseUrl+'/betty/order/findSameDayOrderListInfo.htm'
+          url:urlService.baseUrl+'/empty/test',
+          // headers: {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'}  
           // params:{storeId:120},
           // data:{storeId:120},
           // responseType:'json'

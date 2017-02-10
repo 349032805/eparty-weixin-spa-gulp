@@ -71,14 +71,14 @@ gulp.task('start:server', function() {
     // Change this to '0.0.0.0' to access the server from outside.
     port:8090,
     host:'0.0.0.0',
-    middleware: function(connect, opt) {
-      return [
-        proxy('/',  {
-            target: 'http://192.168.132.101:8082',
-            changeOrigin:true
-        })
-      ]
-    }
+    // middleware: function(connect, opt) {
+    //   return [
+    //     proxy('/empty',  {
+    //         target: 'http://192.168.132.105:8080',
+    //         changeOrigin:true
+    //     })
+    //   ]
+    // }
   });
 });
 
