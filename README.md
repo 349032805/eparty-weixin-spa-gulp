@@ -10,5 +10,3 @@ https://docs.angularjs.org/api
 angular内部培训资料
 
 慕课网,极客学院
-
-http://www.jianshu.com/p/367cbfb9fc5c
