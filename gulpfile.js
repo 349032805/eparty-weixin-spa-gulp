@@ -102,9 +102,10 @@ gulp.task('watch', function () {
   gulp.watch('bower.json', ['bower']);
 });
 
-gulp.task('serve', ['plugin'],function (cb) {
+gulp.task('serve',function (cb) {
   runSequence('clean:tmp',
-    // ['lint:scripts'],
+    ['lint:scripts'],
+    ['plugin'],
     ['start:client'],
     'watch', cb);
 });
