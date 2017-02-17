@@ -10,6 +10,8 @@ var runSequence = require('run-sequence');
 var rev = require('gulp-rev');
 var revCollector = require('gulp-rev-collector');
 var proxy = require('http-proxy-middleware');
+var fs = require('fs');
+var ngConfig = require('gulp-ng-config');
 
 var yeoman = {
   app: require('./bower.json').appPath || 'app',
@@ -106,6 +108,7 @@ gulp.task('serve',function (cb) {
   runSequence('clean:tmp',
     ['lint:scripts'],
     ['plugin'],
+    ['ngConfig'],
     ['start:client'],
     'watch', cb);
 });
@@ -125,9 +128,32 @@ gulp.task('bower', function () {
 gulp.task('plugin', function() {
   gulp.src('./bower_components/**').pipe(gulp.dest(yeoman.app + '/bower_components'));
 });
+
+var ENV = process.env.NODE_ENV || 'development';
+var config = require('./config.js');
+var makeJson = function(env, filePath) {
+  fs.writeFileSync(filePath,JSON.stringify(env));
+};
+
+gulp.task('ngConfig', function() {
+  makeJson(config[ENV], './config.json');
+  gulp.src('./config.json')
+    .pipe(ngConfig('ngEnvConfig', {
+      constants: config[ENV]
+    }))
+    .pipe(gulp.dest(yeoman.app + '/scripts/'))
+});
+
 ///////////
 // Build //
 ///////////
+
+gulp.task('config:build', function () {
+  gulp.src(yeoman.app + '/config.json')
+    .pipe(ngConfig('env.config'))
+    .pipe(gulp.dest(yeoman.dist))
+});
+
 gulp.task('revImg', function(){
     return gulp.src(paths.images)
         .pipe($.rev())
@@ -211,5 +237,5 @@ gulp.task('copy:plugins', function () {
 // });
 
 gulp.task('build', ['clean:dist'], function () {
-  runSequence(['revImg','copy:extras','copy:fonts', 'copy:plugins','client:build']);
+  runSequence(['ngConfig','revImg','copy:extras','copy:fonts', 'copy:plugins','client:build']);
 });
