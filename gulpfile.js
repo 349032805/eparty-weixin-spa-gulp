@@ -148,12 +148,6 @@ gulp.task('ngConfig', function() {
 // Build //
 ///////////
 
-gulp.task('config:build', function () {
-  gulp.src(yeoman.app + '/config.json')
-    .pipe(ngConfig('env.config'))
-    .pipe(gulp.dest(yeoman.dist))
-});
-
 gulp.task('revImg', function(){
     return gulp.src(paths.images)
         .pipe($.rev())
