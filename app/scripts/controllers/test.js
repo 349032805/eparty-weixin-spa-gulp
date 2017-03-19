@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('eparty')
-  .controller('TestCtrl', function ($scope,$http,$location,$interval,$state,baseUrl) {
+  .controller('TestCtrl', function ($scope,$http,$location,$interval,$state,urlService) {
 
 	 $scope.goPage = function ($event) {
         $scope.page = $event.target.getAttribute('data');
@@ -27,7 +27,7 @@ angular.module('eparty')
 
      $http({
           method:'GET',
-          url:baseUrl+'/empty/test',
+          url:urlService.baseUrl+'/shop/list',
           // params:{storeId:120},
           // data:{storeId:120},
           // responseType:'json'

@@ -1,2 +1,2 @@
 angular.module("ngEnvConfig", [])
-.constant("baseUrl", "http://51eparty.com/api");
+.constant("baseUrl", "http://localhost:8080");
